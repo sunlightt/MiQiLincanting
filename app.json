@@ -1,0 +1,35 @@
+{
+  "pages":[
+    
+    "pages/index/index",
+    "pages/reserve_details/index",
+    "pages/store_details/index",
+    "pages/order_details/index",
+    "pages/reserve/index",
+    "pages/agreement/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "米其林",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "selectedColor": "#2a2a2a",
+    "list": [
+        {
+            "pagePath": "pages/index/index",
+            "iconPath": "img/reserve.png",
+            "selectedIconPath": "img/reserved.png",
+            "text": "发现"
+        },
+        {
+            "pagePath": "pages/reserve/index",
+            "iconPath": "img/order.png",
+            "selectedIconPath": "img/ordered.png",
+            "text": "订单"
+        }
+    ]
+}
+}

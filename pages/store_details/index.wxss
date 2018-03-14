@@ -1,0 +1,183 @@
+
+.parent{
+    padding-bottom:106rpx;
+}
+.store_poster image{
+    display:block;
+    width:100%;
+    height:392rpx;
+}
+.store_msg{
+
+    padding:0 30rpx;
+
+}
+.store_name{
+    padding-bottom:36rpx;
+    border-bottom:1rpx solid #e8e8e8;
+}
+.store_title{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    padding:16rpx 0 20rpx;
+}
+.store_title .left{
+    width:70%;
+}
+.store_title .left text{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    height:74rpx;
+    font:34rpx/74rpx '微软雅黑';
+    color:#090909;
+}
+.store_title .right{
+    width:30%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.store_title .right text{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font:32rpx '微软雅黑';
+    color:#ff233f;
+    text-align:right;
+    padding-right:60rpx;
+    position:relative;
+}
+.store_title .right text::after{
+    content:'/人均';
+    display:block;
+    font:24rpx '微软雅黑';
+    color:#ff2f4a;
+    position:absolute;
+    right:0;
+    bottom:0;
+}
+.store_name .store_inf{
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start; 
+}
+.store_name .store_inf .type{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    width:106rpx;
+    height:38rpx;
+    font:24rpx/38rpx '微软雅黑';
+    color:#f59360;
+    text-align:center;
+    background:#fde6db;
+}
+
+.store_name .store_inf .price{
+    display:inline-block;
+    font:28rpx/38rpx '微软雅黑';
+    color:#3f3f3f;
+    margin-left:26rpx;
+}
+
+.main .section{
+
+    padding:24rpx 0;
+    border-bottom:1rpx solid #e8e8e8;
+}
+.main .area{
+    padding-left:30rpx;
+    position:relative;
+}
+.main .area .address_icon{
+    display:block;
+    width:24rpx;
+    position:absolute;
+    left:0;
+    top:30rpx;
+}
+.main .section .title{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    height:82rpx;
+    font:28rpx/82rpx '微软雅黑';
+    color:#000;
+    padding-left:30rpx;
+    position:relative;
+}
+.main .section .title::before{
+    content:'';
+    display:block;
+    width:8rpx;
+    height:32rpx;
+    background:#474747;
+    position:absolute;
+    left:0;
+    top:50%;
+    margin-top:-16rpx;
+}
+.main .section .msg_list text{ 
+    display:block;
+    font:26rpx/46rpx '微软雅黑';
+    color:#7f7f7f;
+    padding-left:30rpx;
+    position:relative;
+}
+.main .section .msg_list text::before{
+    content:'';
+    display:block;
+    width:6rpx;
+    height:6rpx;
+    background:#696969;
+    position:absolute;
+    top:20rpx;
+    left:4rpx;
+}
+.main .section .address{
+    display:block;
+    font:28rpx/48rpx '微软雅黑';
+    color:#000;
+}
+.main .section .transport{
+    display:block;
+    font:24rpx/40rpx '微软雅黑';
+    color:#636363;
+}
+.appointment{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+}
+.appointment image{
+    display:block;
+    width:100%;
+    height:102rpx;
+}
+.appointment text{
+    display:block;
+    width:100%;
+    height:102rpx;
+    font:32rpx/102rpx '微软雅黑';
+    color:#fff;
+    text-align:center;
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+}

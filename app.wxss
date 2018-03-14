@@ -1,0 +1,27 @@
+
+/*弹框提示  */
+.toust_mark{
+    position:fixed;
+    top:50%;
+    left:50%;
+    width:200rpx;
+    padding:30rpx 4rpx;
+    background:rgba(63,63,63,.9); 
+    /* background:#3f3f3f; */
+    box-sizing:border-box;
+    transform:translate(-50%,-50%);
+    border-radius:30rpx;
+    z-index:9999;
+}
+.toust_mark image{
+    display:block;
+    width:45rpx;
+    height:45rpx;
+    margin:0 auto 20rpx;
+}
+.toust_mark text{
+    display:block;
+    font:22rpx/36rpx '微软雅黑';
+    color:#fff;
+    text-align:center;
+}

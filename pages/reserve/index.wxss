@@ -1,0 +1,117 @@
+page{
+    min-height:100%;
+}
+.header{
+    padding:0 38rpx;
+    border-bottom:1rpx solid #e5e5e5;
+     position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    z-index:100;
+    background:#fff; 
+}
+.tab_nav{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.tab_nav .doing , .tab_nav .complete{
+    flex:5;
+    text-align:center;
+    position:relative;
+}
+
+.tab_nav .doing text, .tab_nav .complete text{
+    display:inline-block;
+    height:88rpx;
+    font:26rpx/88rpx '微软雅黑';
+    color:#a3a3a3;
+}
+.tab_nav .active::after{
+    content:'';
+    display:block;
+    width:40rpx;
+    height:4rpx;
+    background:#ea5062;
+    position:absolute;
+    left:50%;
+    margin-left:-20rpx;
+    bottom:0;
+}
+.tab_nav .active text{
+    color:#ea5062;
+}
+
+.main{
+    padding:88rpx 38rpx 0; 
+    
+}
+.main .section .item {
+    padding-top:30rpx;
+    border-bottom:1rpx solid #e5e5e5;
+}
+.main .section .show_tip{
+    border-bottom:none;
+}
+.main .section .show_tip image{
+    display:block;
+    width:100%;
+    height:300rpx;
+}
+.main .section .show_tip .tip{
+    display:block;
+    font:30rpx/50rpx '微软雅黑';
+    color:#ea5062;
+    text-align:center;
+}
+.main .section .item .poster{
+    width:100%;
+    height:376rpx;
+}
+.main .section .item .poster image{
+    display:block;
+    width:100%;
+    height:100%;
+}
+.item .msg{
+    padding:18rpx 0 22rpx;
+}
+.item .msg .head{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.item .msg .head .left{
+    flex:7;
+}
+.item .msg .head .left text{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    height:48rpx;
+    font:28rpx/48rpx '微软雅黑';
+    color:#1f1f1f;
+}
+.item .msg .head .right{
+    flex:3;
+}
+.item .msg .head .right text{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    height:48rpx;
+    font:28rpx/48rpx '微软雅黑';
+    color:#1f1f1f;
+    text-align:right;
+}
+.item .msg .date text{
+    font:24rpx/44rpx '微软雅黑';
+    color:#a3a3a3;
+}

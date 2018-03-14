@@ -1,0 +1,177 @@
+<view class="parent">
+    <form bindsubmit="formsubmit">
+        <view class="head">
+            <text class="store_name">{{store_name}}</text>
+            <view class="reserve_inf">
+                <view class="select_date">
+                    <view class="date_tip">选择用餐时间
+                        <text>(当地时间)</text>
+                    </view>
+                    <view class="date">
+                        <!-- 2018-03-5 12:00 -->
+                        <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+                            <view class="tui-picker-detail">
+                                {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="change_status">
+                    <text class="tip">若时间订不上，愿意调剂到其他时间</text>
+                    <view class="switch">
+                        <switch bindchange="change_switch" name="switch" />
+                    </view>
+                </view>
+                <view class="change_date_wrap" wx:if="{{spare_time}}">
+                    <view class="select_date">
+                        <view class="date_tip">选择用餐时间
+                            <text>(当地时间)</text>
+                        </view>
+                        <view class="date">
+                            <picker mode="multiSelector" value="{{dateTime2}}" bindchange="changeDateTime2" bindcolumnchange="changeDateTimeColumn2" range="{{dateTimeArray2}}">
+                                <view class="tui-picker-detail">
+                                    {{dateTimeArray2[0][dateTime2[0]]}}-{{dateTimeArray2[1][dateTime2[1]]}}-{{dateTimeArray2[2][dateTime2[2]]}} {{dateTimeArray2[3][dateTime2[3]]}}:{{dateTimeArray2[4][dateTime2[4]]}}
+                                </view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="select_date">
+                        <view class="date_tip">选择用餐时间
+                            <text>(当地时间)</text>
+                        </view>
+                        <view class="date">
+                            <picker mode="multiSelector" value="{{dateTime3}}" bindchange="changeDateTime3" bindcolumnchange="changeDateTimeColumn3" range="{{dateTimeArray3}}">
+                                <view class="tui-picker-detail">
+                                    {{dateTimeArray3[0][dateTime3[0]]}}-{{dateTimeArray3[1][dateTime3[1]]}}-{{dateTimeArray3[2][dateTime3[2]]}} {{dateTimeArray3[3][dateTime3[3]]}}:{{dateTimeArray3[4][dateTime3[4]]}}
+                                </view>
+                            </picker>
+                        </view>
+                    </view>
+                </view>
+                <view class="member">
+                    <view class="left">
+                        <view class="top">用餐人数
+                            <text>(12岁以上)</text> </view>
+                        <text class="limit">注：本订单最多2人</text>
+                    </view>
+                    <view class="right">
+                        <view class="change_num">
+                            <text class="reduce" bindtap='reduce'>-</text>
+                            <input value="{{member}}" name="num" type='number' bindinput="input_member"></input>
+                            <text class="add" bindtap='add'>+</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="form">
+                <view class="item">
+                    <view class="left">
+                        <text>姓名</text>
+                    </view>
+                    <view class="right">
+                        <input name="username" placeholder='请填写联系人姓名'></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="left">
+                        <text>境内手机</text>
+                    </view>
+                    <view class="right">
+                        <input name="member" placeholder='请填写中国大陆手机号码' type='number'></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="left">
+                        <text>境外手机</text>
+                    </view>
+                    <view class="right">
+                        <view class="member_wrap">
+                            <view class="area_code">
+                                <input name="area_code" placeholder='国家区号' type='number'></input>
+                            </view>
+                            <view class="area_member">
+                                <input name="member1" placeholder='选填,方便境外联系' type='number'></input>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="left">
+                        <text>邮箱</text>
+                    </view>
+                    <view class="right">
+                        <input name="email" placeholder='接受订单确认邮箱'></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="left">
+                        <text>微信</text>
+                    </view>
+                    <view class="right">
+                        <input name="weixin" placeholder='选填方便境外联系'></input>
+                    </view>
+                </view>
+                <view class="total_inf">
+                    <view class="commission">佣金:
+                        <text>{{total_commission}}</text>
+                    </view>
+                    <view class="deposit">押金:
+                        <text>{{minimum_consumption}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="tip tip_msg">
+            <view class="tip_title" bindtap="check_change">
+                <view class="check">
+                    <image src="{{check_status==true ? '/img/agree.png' : '/img/check.png'}}" catchtap="check_change" ></image>
+                    <checkbox name="check" id="check" bindchange="check_change" />
+                </view>
+                <label for="check">
+                    <view class="text">同意
+                        <view class="color" catchtap='agreement'>预订须知 退订政策</view>以及
+                        <view class="color" catchtap='agreement'>服务条款</view>
+                    </view>
+                </label>
+            </view>
+            <view class="msg_list">
+                <view class="item">1、准时:就餐当天<view class="color">迟到超过10分钟可能会被取消预订被预订并视为违约 </view>,迟到超过10分钟可能会被取消预订被预订并视为违约 </view>
+                <view class="item">2 、到店:到点后，请出示“我的订单”里的
+                    <view class="color">“就餐凭证”日文版 </view>，以便餐厅与您确认预订信息。</view>
+                <view class="item">3 、 餐费:所用用餐费用（包括餐费、税、服务费、单点酒水等），用餐结束后需在
+                    <view class="color">店内支付</view>（预付餐费订单除外）</view>
+                <view class="item">4、 收据:餐后请
+                    <view class="color">索取用餐收据/小票 </view>，并在订单页拍照上传。</view>
+                <view class="item">5、 结算:收据/小票经审核后
+                    <view class="color">押金</view>会按原支付方式1~10个工作日退还到您的账户中。</view>
+                <view class="item">6、修改: 所有订单修改，请 提前用餐日期7天以上告知
+                    <view class="color">（特殊餐厅除外）</view>, 7天内修改你可能产生的违约费用将在押金中扣除。</view>
+                <view class="item">6、修改: 所有订单修改，请 提前用餐日期7天以上告知
+                    <view class="color">（特殊餐厅除外）</view>, 7天内修改你可能产生的违约费用将在押金中扣除。</view>
+                <view class="item">6、修改: 所有订单修改，请 提前用餐日期7天以上告知
+                    <view class="color">（特殊餐厅除外）</view>, 7天内修改你可能产生的违约费用将在押金中扣除。</view>
+                <view class="item">7、退订: 下单后未预定成功，可随时取消订单，佣金+押金将全额退款。预订成功过后，佣金不退，就餐日期前7天取消订单，押金全退（特殊餐厅除外）。距离就餐日期不满7天取消订单，押金不退。</view>
+            </view>
+        </view>
+        <view class="submit" form-type="submit">
+            <view class="total_price">合计金额:
+                <text class="price">￥{{total}}</text>
+            </view>
+            <view class="btn">
+                <button form-type="submit">
+                    <image src="/img/submit_order.png"></image>
+                    <text>提交订单</text>
+                </button>
+            </view>
+        </view>
+    </form>
+</view>
+
+
+<!--提示弹框  -->
+<view class="toust_mark" wx:if="{{showToast}}">
+    <image src="/img/tip.png"></image>
+    <text>{{toast_msg}}</text>
+</view>

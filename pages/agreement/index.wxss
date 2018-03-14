@@ -1,0 +1,19 @@
+
+.parent{
+    padding:0 30rpx;
+}
+.parent .title{
+    display:block;
+    width:100%;
+    font:30rpx/90rpx '微软雅黑';
+    color:#333;
+    text-align:center;
+}
+.parent text{
+    display:block;
+    width:100%;
+    font:22rpx/52rpx '微软雅黑';
+    color:#333;
+    text-indent:2em;
+    text-align:justify;
+}

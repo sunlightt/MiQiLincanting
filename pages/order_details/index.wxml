@@ -1,0 +1,92 @@
+<view class="parent">
+    <view class="header"></view>
+    <view class="main">
+        <view class="order_top">
+            <view class="wrap">
+                <view class="poster">
+                    <image src="{{order_inf.restaurant_logo}}" mode='center'></image>
+                </view>
+                <view class="msg">
+                    <view class="title">
+                        <text>{{order_inf.restaurant_name}}</text>
+                    </view>
+                    <view class="date">
+                        <text>用餐时间:{{order_inf.final_time}}</text>
+                    </view>
+                    <view class="member">
+                        <text>用餐人数:{{order_inf.num}}人</text>
+                    </view>
+                </view>
+            </view>
+            <view class="unsubcribe" bindtap="unsubcribe" data-order_sn="{{order_sn}}" wx:if="{{order_inf.is_qx==0 && (order_inf.order_status==1 || order_inf.order_status==2)}}">退订</view>
+        </view>
+        <view class="order_content">
+            <view class="order_title">
+                <text>订单信息</text>
+            </view>
+            <view class="order_inf">
+                <view class="item">
+                     <text class="tip">订单编号</text>
+                     <view class="details_inf">
+                         <text>{{order_inf.order_sn}}</text>
+                     </view>
+                </view>
+                <view class="item">
+                     <text class="tip">姓名</text>
+                     <view class="details_inf">
+                         <text>{{order_inf.username}}</text>
+                     </view>
+                </view>
+                <view class="item">
+                     <text class="tip">境内手机</text>
+                     <view class="details_inf">
+                         <text>{{order_inf.territory_phone}}</text>
+                     </view>
+                </view>
+                <view class="item">
+                     <text class="tip">境外手机</text>
+                     <view class="details_inf">
+                         <text>{{order_inf.abroad_phone}}</text>
+                     </view>
+                </view>
+                <view class="item">
+                     <text class="tip">邮箱</text>
+                     <view class="details_inf">
+                         <text>{{order_inf.email}}</text>
+                     </view>
+                </view>
+                <view class="item">
+                     <text class="tip">微信</text>
+                     <view class="details_inf">
+                         <text>{{order_inf.wx_number}}</text>
+                     </view>
+                </view>
+                <view class="item">
+                     <text class="tip">总价</text>
+                     <view class="details_inf">
+                         <text>{{order_inf.total}}</text>
+                     </view>
+                </view>
+            </view>
+        </view>
+        <view class="order_img_inf" wx:if="{{order_inf.order_status==2 || order_inf.order_status==4}}">
+                <view class="evidence">
+                    <image src="{{order_inf.order_voucher}}" data-src="{{order_inf.order_voucher}}" bindtap="previewImage" mode="center"></image>
+                </view>
+                <view class="evidence">
+                    <image src="{{img_src}}" data-src="{{order_inf.order_voucher}}" bindtap="previewImage" mode="center" wx:if="{{order_inf.receipt==''}}"></image>
+                    <image src="{{order_inf.receipt}}" data-src="{{order_inf.receipt}}" bindtap="previewImage" mode="center" wx:else></image>
+                </view>
+            </view>
+        <view class="up_img_btn" bindtap='up_img' wx:if="{{(order_inf.order_status==2 || order_inf.order_status==4) && order_inf.receipt==''}}">
+            <image src="/img/submit_order.png"></image>
+            <text>上传收据</text>
+        </view>
+    </view>
+</view>
+
+<!--提示弹框  -->
+<view class="toust_mark" wx:if="{{showToast}}">
+    <image src="/img/tip.png"></image>
+    <text>{{toast_msg}}</text>
+</view>

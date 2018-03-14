@@ -1,0 +1,106 @@
+<view class="parent">
+    <view class="header">
+        <view class="select_type">
+            <view class="address">
+                <text data-type='true' bindtap="filter">{{area_inf}}</text>
+                <image src="/img/button.png"></image>
+            </view>
+            <view class="type" data-type='false' bindtap="filter">{{type_inf}}</view>
+        </view>
+        <!--地区选择  -->
+        <view class="select_area" wx:if="{{mark_off}}">
+            <view class="area_list" wx:if="{{select_area_stats}}">
+                <view class="item" bindtap="check_area" data-id="{{item.id}}" data-val="{{item.name}}" wx:for="{{area_arr}}">
+                    <image src="/img/address{{index}}.png"></image>
+                    <text>{{item.name}}</text>
+                </view>
+            </view>
+            <view class="type_list" wx:else>
+                <text class="item" bindtap="check_type" wx:for="{{type_arr}}" data-id="{{item.id}}" data-val="{{item.name}}">{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="main">
+        <view class="store_list">
+            <view class="item" bindtap="store_details" data-id="{{item.id}}" wx:for="{{store_list}}" >
+                <view class="poster">
+                    <image src="{{item.logo}}" mode='center'></image>
+                </view>
+                <view class="msg">
+                    <view class="title">
+                        <text class="store_name">{{item.name}}</text>
+                        <view class="store_star" wx:if="{{item.star==1}}">
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                        </view>
+                        <view class="store_star" wx:if="{{item.star==2}}">
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                        </view>
+                        <view class="store_star" wx:if="{{item.star==3}}">
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                        </view>
+                        <view class="store_star" wx:if="{{item.star==4}}">
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                        </view>
+                        <view class="store_star" wx:if="{{item.star==5}}">
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                        </view>
+                        <view class="store_star" wx:if="{{item.star==6}}">
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                        </view>
+                        <view class="store_star" wx:if="{{item.star==7}}">
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                            <image src="/img/star.png" mode="aspectFill"></image>
+                        </view>
+                    </view>
+                    <view class="store_msg">
+                        <text>{{item.describe}}</text>
+                    </view>
+                    <view class="store_inf">
+                        <view class="inf_wrap">
+                            <view class="store_address">
+                                <text>{{item.region_name}}</text>
+                            </view>
+                            <view class="store_type">
+                                <text>{{item.brand_name}}</text>
+                            </view>
+                        </view>
+                        <view class="store_price">
+                            <text>{{item.consumption}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+             <view class="item show_tip" wx:if="{{store_list.length==0}}">
+                 <image src="/img/tipicon.png"></image>
+                 <text class="tip">暂无数据</text>
+            </view>
+        </view>
+    </view>
+</view>
+<button bindtap="payment"></button>
+<!--mark  -->
+<view class="mark" wx:if="{{mark_off}}">
+
+</view>
+
+<!-- <view class="top" style="position:fixed;top:0;left:0;right:0;height:300rpx;background:#333;"></view> -->

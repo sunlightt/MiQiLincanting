@@ -1,0 +1,48 @@
+<view class="parent">
+    <view class="store_poster">
+        <image mode="aspectFill" src="{{store_inf.logo}}"></image>
+    </view>
+    <view class="store_msg">
+        <view class="store_name">
+            <view class="store_title">
+                <view class="left">
+                    <text class="title">{{store_inf.name}}</text>
+                </view>
+                <view class="right">
+                    <text>{{store_inf.consumption}}元</text>
+                </view>
+            </view>
+            <view class="store_inf">
+                <text class="type">{{store_inf.brand_name}}</text>
+                <text class="price">佣金：{{store_inf.commission}}元/人    押金：{{store_inf.minimum_consumption}}元</text>
+            </view>
+        </view>
+        <view class="main">
+            <view class="section">
+                <text class="title">餐厅特色</text>
+                <view class="msg_list">
+                    <text wx:for="{{store_inf.features}}">{{item}}</text>
+                    <!-- <text>推荐鳗鱼汤和生鱼片</text>
+                    <text>工作日有特价套餐，店内有包间</text> -->
+                </view>
+            </view>
+             <view class="section area">
+                <image class="address_icon" src="/img/address_icon.png" mode="widthFix"></image>
+                <text class="address">{{store_inf.address}}</text>
+                <text class="transport">{{store_inf.traffic}}</text>
+            </view>
+            <view class="section">
+                <text class="title">使用提示</text>
+                <view class="msg_list">
+                    <text wx:for="{{store_inf.hints}}">{{item}}</text>
+                    <!-- <text>请至少提前一天预订；</text>
+                    <text>需要支付町的押金，用餐之后将退还。如不去用餐押金将不退还；</text> -->
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="appointment" bindtap="reserve" data-storeid="{{store_inf.id}}" data-consumption="{{store_inf.consumption}}" data-commission="{{store_inf.commission}}" data-minimum_consumption="{{store_inf.minimum_consumption}}" data-name="{{store_inf.name}}">
+         <image src="/img/submit_order.png" mode='aspectFill'></image>
+         <text>立即预约</text>
+    </view>
+</view>

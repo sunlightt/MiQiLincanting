@@ -1,0 +1,144 @@
+<view class="parent">
+    <view class="header">
+        <view class="tab_nav">
+            <view class="doing {{style_arr[0]}}" data-index="0" bindtap='tabnav'>
+                <text>进行中</text>
+            </view>
+            <view class="complete {{style_arr[1]}}" data-index="1" bindtap='tabnav'>
+                <text>已完成</text>
+            </view>
+        </view>
+    </view>
+    <view class="main">
+        <!--进行中  -->
+        <view class="section" wx:if="{{tab_index==0}}">
+            <view wx:if="{{doing_order_list.length==0}}">
+                <view class="item show_tip">
+                    <image src="/img/tipicon.png"></image>
+                    <text class="tip">暂无订单</text>
+                </view>
+            </view>
+            <view wx:else>
+                <view class="item" wx:for="{{doing_order_list}}" data-order_sn="{{item.order_sn}}" bindtap="reserve_details">
+                    <view class="poster">
+                        <image src="{{item.restaurant_logo}}" mode='center'></image>
+                    </view>
+                    <view class="msg">
+                        <view class="head">
+                            <view class="left">
+                                <text>{{item.restaurant_name}}</text>
+                            </view>
+                            <view class="right">
+                                <text>￥{{item.total}}</text>
+                            </view>
+                        </view>
+                        <view class="date">
+                            <text>用餐时间:{{item.final_time}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- <view class="item">
+                <view class="poster">
+                    <image src="/img/pro_img.png" mode='center'></image>
+                </view>
+                <view class="msg">
+                    <view class="head">
+                        <view class="left">
+                            <text>京东浅草鳗鱼饭</text>
+                        </view>
+                        <view class="right">
+                            <text>￥1400.00</text>
+                        </view>
+                    </view>
+                    <view class="date">
+                        <text>用餐时间:2018-3-10</text>
+                    </view>
+                </view>
+            </view>
+            <view class="item">
+                <view class="poster">
+                    <image src="/img/pro_img.png" mode='center'></image>
+                </view>
+                <view class="msg">
+                    <view class="head">
+                        <view class="left">
+                            <text>京东浅草鳗鱼饭</text>
+                        </view>
+                        <view class="right">
+                            <text>￥1400.00</text>
+                        </view>
+                    </view>
+                    <view class="date">
+                        <text>用餐时间:2018-3-10</text>
+                    </view>
+                </view>
+            </view> -->
+        </view>
+        <!--已完成  -->
+        <view class="section" wx:if="{{tab_index==1}}">
+            <view wx:if="{{complete_order_list.length==0}}">
+                <view class="item show_tip">
+                    <image src="/img/tipicon.png"></image>
+                    <text class="tip">暂无订单</text>
+                </view>
+            </view>
+            <view wx:else>
+                <view class="item" wx:for="{{complete_order_list}}" data-order_sn="{{item.order_sn}}" bindtap="reserve_details">
+                    <view class="poster">
+                        <image src="{{item.restaurant_logo}}" mode='center'></image>
+                    </view>
+                    <view class="msg">
+                        <view class="head">
+                            <view class="left">
+                                <text>{{item.restaurant_name}}</text>
+                            </view>
+                            <view class="right">
+                                <text>￥{{item.total}}</text>
+                            </view>
+                        </view>
+                        <view class="date">
+                            <text>用餐时间:{{item.final_time}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- <view class="item">
+                <view class="poster">
+                    <image src="/img/pro_img.png" mode='center'></image>
+                </view>
+                <view class="msg">
+                    <view class="head">
+                        <view class="left">
+                            <text>京东浅草鳗鱼饭</text>
+                        </view>
+                        <view class="right">
+                            <text>￥1400.00</text>
+                        </view>
+                    </view>
+                    <view class="date">
+                        <text>用餐时间:2018-3-10</text>
+                    </view>
+                </view>
+            </view>
+            <view class="item">
+                <view class="poster">
+                    <image src="/img/pro_img.png" mode='center'></image>
+                </view>
+                <view class="msg">
+                    <view class="head">
+                        <view class="left">
+                            <text>京东浅草鳗鱼饭</text>
+                        </view>
+                        <view class="right">
+                            <text>￥1400.00</text>
+                        </view>
+                    </view>
+                    <view class="date">
+                        <text>用餐时间:2018-3-10</text>
+                    </view>
+                </view>
+            </view> -->
+        </view>
+    </view>
+</view>
